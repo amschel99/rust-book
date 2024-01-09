@@ -30,7 +30,35 @@ fn using_un_wrap(){
 }
 fn using_expect(){
     let file=File::open("hello.txt").expect("There was an error while trying to open the file");
-    // works the same way as unwrap but here the vlue we pass to expect is the message that will be passed to panic
+    // works the same way as unwrap but here the value we pass to expect is the message that will be passed to panic
 }
 
+//PROPAGATING ERRORS TO THE CALLING CODE
+
+  fn read_username_from_file()->Result<String, io::Error>{
+  let file_result=File::open("hello.txt");
+
+    let read_file= match file_result{
+        OK(file)=>file,
+        Err(err)=>return Err(err),
+    };
+
+      let mut username=String::new();
+      
+      match read_file.read_to_string(&mut username){
+          OK(_)=>OK(username),
+          Err(e)=>Err(e),
+          
+      }
   
+      
+  }
+  // The code bove can be written in a more coincise way
+fn read_username_from_file_easily()-> Result <String, io::Error>{
+
+    let file_result=File::open("hello.txt")?;
+    let mut username=String::new();
+    file_result.read_to_string(&mut username)?;
+    OK(username)
+    
+}
