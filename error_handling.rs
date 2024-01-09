@@ -20,4 +20,17 @@ fn main (){
     }
   };
 }
+
+          //Below is  more coincise way of doing it
+
+fn using_un_wrap(){
+    let file=File::open("hello.txt").unwrap();
+    //uwrap will return the file for us if it ws read succesfully or panic if there was an error
+    
+}
+fn using_expect(){
+    let file=File::open("hello.txt").expect("There was an error while trying to open the file");
+    // works the same way as unwrap but here the vlue we pass to expect is the message that will be passed to panic
+}
+
   
