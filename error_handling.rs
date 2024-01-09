@@ -62,3 +62,11 @@ fn read_username_from_file_easily()-> Result <String, io::Error>{
     OK(username)
     
 }
+
+fn read_username_from_file_more_easily()-> Result <String, io::Error>{
+  let mut username=String::new();
+  let file_result=File::open("hello.txt")?.read_to_string(&mut username)?;
+  OK(username)
+  
+}
+        
