@@ -69,4 +69,10 @@ fn read_username_from_file_more_easily()-> Result <String, io::Error>{
   OK(username)
   
 }
-        
+
+// reading contents of files is fairly common so the standard library provides, fs::read_to_string
+fn read_file_using_std()->Result<String, io::Error>{
+fs::read_to_string("hello.txt")
+    
+    
+}
