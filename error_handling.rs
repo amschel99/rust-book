@@ -76,3 +76,22 @@ fs::read_to_string("hello.txt")
     
     
 }
+//The ? operator can only be used in functions whose return type is compatible with the value the ? is used on
+// The below function wll fail because return type is not Result< String, io::Error>
+use std::fs::File;
+
+fn main() {
+    let greeting_file = File::open("hello.txt")?;
+}
+//? can be used to return Option<T>
+fn last_char_of_first_line(text: &str) -> Option<char> {
+    text.lines().next()?.chars().last()
+}
+//Nb main function always returns () but can also return Result<T, E>
+fn our_main() -> Result<(), io::Error> {
+    let greeting_file = File::open("hello.txt")?;
+
+    Ok(())
+}
+
+
