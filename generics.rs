@@ -23,3 +23,33 @@ fn main() {
     let result = largest(&char_list);
     println!("The largest char is {}", result);
 }
+//Generics with structs
+struct Point <T>{
+  x:T,
+  y:T,
+}
+let integer_point= Point {
+    x:0,
+    y:1
+}
+let float_point=Point {
+    x:0.1,
+    y:1.3
+
+}
+
+    struct Point2<T, U>{
+    x:T,
+    y:U
+    }
+
+//Generics with enums
+enum Option<T> {
+    Some(T),
+    None,
+}
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+
