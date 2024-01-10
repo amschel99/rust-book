@@ -53,3 +53,27 @@ enum Result<T, E> {
     Err(E),
 }
 
+// Generics in implementation blocks
+#[derive(Debug)]
+struct Point <T>{
+  x:T,
+  y:T
+}
+//the T after impl says that the T after Point is a generic not a core type. If we left it out 
+//we would get an error saying T is not defined in the scope unless we replaced with a core type
+impl<T> Point<T>{
+fn x(&self)->&T{
+  &self.x
+
+
+}
+}
+fn main (){
+  let  my_point=Point{
+    x:1,
+    y:2
+  };
+  print!("{:?}", my_point.x())
+}
+
+
