@@ -49,6 +49,26 @@ fn f<'a>(s: &'a str, t: &'a str) -> &'a str {
 }
 
 ```
+
+```rust
+//lets do an implementation of this
+
+fn main(){
+    let string1=String::from("xyz");
+    {
+        let string2=String::from("abc");
+
+    }
+    let result=longest(string1.as_str(), string2.as_str());
+
+}
+fn longest<'a>(s1:&'a str, s2:&'astr)->&'astr{
+    s1
+
+}
+
+```
+
 The way to achieve this is to give both input parameters the same lifetime annotation. It’s how we tell the compiler that as long as both of these input parameters are valid, so is the returned value.
 
 ```rust
