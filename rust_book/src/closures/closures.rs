@@ -25,10 +25,7 @@ impl Inventory {
     }
 
     fn give_away(&self, personal_pref: Option<ShirtColor>) -> ShirtColor {
-        match personal_pref {
-            Some(pref) => pref,
-            None => self.most_in_stock(),
-        }
+        personal_pref.unwrap_or_else(|| self.most_in_stock())
     }
 }
 
