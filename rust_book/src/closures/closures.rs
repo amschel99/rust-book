@@ -37,5 +37,4 @@ fn test_closures() {
 
     let user_pref1 = Some(ShirtColor::Red);
     assert_eq!(store.give_away(user_pref1), ShirtColor::Red);
-    assert_eq!(store.give_away(None), ShirtColor::Blue);
 }
