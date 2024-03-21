@@ -7,3 +7,4 @@ mod iterators;
 mod lifetimes;
 mod traits;
 mod smart_pointers;
+mod threads;
